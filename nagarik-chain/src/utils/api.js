@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://nagarikchain-backend.onrender.com/';
-
+const API_BASE_URL = 'https://nagarik-chain-backend-crog.onrender.com/api/v1';
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
