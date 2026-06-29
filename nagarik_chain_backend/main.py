@@ -42,8 +42,8 @@ def on_startup():
     from seed import seed
     try:
         seed()
-    except Exception:
-        pass  # already seeded or locked
+    except Exception as e:
+        print(f"SEED ERROR: {e}")  # already seeded or locked
 
 # Mount routers
 app.include_router(auth_router,           prefix="/api/v1/auth",         tags=["Auth"])
