@@ -38,6 +38,12 @@ app.add_middleware(
 @app.on_event("startup")
 def on_startup():
     init_db()
+    # Auto-seed demo data if database is empty
+    from seed import seed
+    try:
+        seed()
+    except Exception:
+        pass  # already seeded or locked
 
 # Mount routers
 app.include_router(auth_router,           prefix="/api/v1/auth",         tags=["Auth"])
